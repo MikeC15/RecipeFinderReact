@@ -1,0 +1,18 @@
+.loginContainer{
+    padding: 0 !important;
+}
+.headerMargin{
+    margin-bottom: 0 !important;
+}
+.loginP{
+    margin-bottom: 0 !important;
+    font-size: 10px;
+}
+.headerContainer{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    align-self: center;
+}
+.bigContainer{
+    padding: 0 !important;
+}
