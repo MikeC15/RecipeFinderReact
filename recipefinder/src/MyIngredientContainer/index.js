@@ -8,7 +8,7 @@ class MyIngredientContainer extends Component {
         super(props);
 
         this.state = {
-            myInredients: [],
+            myIngredients: [],
             showEditModal: false,
             myIngredientToEdit: {
                 name: '',
@@ -18,27 +18,9 @@ class MyIngredientContainer extends Component {
     }
 
     componentDidMount() {
-        this.getMyIngredients();
+        this.setState({myIngredients: this.props.myIngredients})        
     }
 
-    getMyIngredients = async () => {
-        try {
-            const myIngredients = await fetch(process.env.REACT_APP_API_URL + '/myIngredients', {
-                credentials: 'include',
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            });
-            const parsedIngredients = await myIngredients.json();
-            console.log(parsedIngredients);
-            this.setState({
-                myIngredients: parsedIngredients
-            })
-
-        } catch (err) {
-            console.log(err);
-        }
-    }
 
     // addComment = async (e, commentFromTheForm) => {
     //     e.preventDefault();

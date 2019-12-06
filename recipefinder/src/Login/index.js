@@ -25,7 +25,7 @@ export default class Login extends Component {
         const loginResponse = await fetch(loginUrl, {
             method: 'POST',
             body: JSON.stringify(this.state),
-            // credentials: 'include',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -37,6 +37,7 @@ export default class Login extends Component {
             this.setState({
                 LoginMsg: "Logged In"
             });
+            this.props.getIngredients()
         } else {
             this.setState({
                 errorMsg: "Incorrect"

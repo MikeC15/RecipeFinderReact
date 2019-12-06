@@ -35,8 +35,9 @@ export default class Register extends Component {
             console.log('Sign up successful');
             // this.props.history.push('/comments');
             this.setState({
-                RegisterMsg: "Registered"
+                RegisterMsg: "Login after Register"
             });
+            this.props.getIngredients()
         } else {
             this.setState({
                 errorMsg: "error registering"
