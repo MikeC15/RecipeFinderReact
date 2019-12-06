@@ -37,7 +37,7 @@ export default class Register extends Component {
             this.setState({
                 RegisterMsg: "Login after Register"
             });
-            this.props.getIngredients()
+            // this.props.getIngredients()
         } else {
             this.setState({
                 errorMsg: "error registering"

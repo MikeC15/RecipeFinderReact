@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import CommentList from '../CommentList'
-// import CreateCommentForm from '../CreateCommentForm'
+import CreateMyIngredientForm from '../CreateMyIngredientForm'
 // import EditCommentModal from '../EditCommentModal'
 
 class MyIngredientContainer extends Component {
@@ -9,6 +9,7 @@ class MyIngredientContainer extends Component {
 
         this.state = {
             myIngredients: [],
+            myIngredient: null,
             showEditModal: false,
             myIngredientToEdit: {
                 name: '',
@@ -22,30 +23,31 @@ class MyIngredientContainer extends Component {
     }
 
 
-    // addComment = async (e, commentFromTheForm) => {
-    //     e.preventDefault();
-    //     console.log("COMMENT LIFTING UP FROM FORM", commentFromTheForm)
-    //     try {
-    //         const createdCommentResponse = await fetch(process.env.REACT_APP_API_URL + '/api/v1/comments/', {
-    //             method: 'POST',
-    //             body: JSON.stringify(commentFromTheForm),
-    //             credentials: 'include',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         });
-    //         const parsedResponse = await createdCommentResponse.json();
-    //         console.log(parsedResponse, ' this is response')
-    //         if (parsedResponse.status.code === 201) {
-    //             this.setState({ comments: [...this.state.comments, parsedResponse.data] })
-    //         } else {
-    //             alert("You must be logged in to comment")
-    //         }
-    //     } catch (err) {
-    //         console.log('error')
-    //         console.log(err)
-    //     }
-    // }
+    addMyIngredient = async (e, ingredientFromTheForm) => {
+        e.preventDefault();
+        console.log("INGREDIENT LIFTING UP FROM FORM", ingredientFromTheForm)
+        try {
+            const createdIngredientResponse = await fetch(process.env.REACT_APP_API_URL + '/myIngredients', {
+                method: 'POST',
+                body: JSON.stringify(ingredientFromTheForm),
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const parsedResponse = await createdIngredientResponse.json();
+            console.log(parsedResponse, ' this is response')
+            // if (parsedResponse.status.code === 201) {
+            this.setState({ myIngredients:parsedResponse.user.myIngredients})
+            console.log(this.state.myIngredients)
+            // } else {
+            //     alert("You must be logged in to comment")
+            // }
+        } catch (err) {
+            console.log('error')
+            console.log(err)
+        }
+    }
 
     // deleteComment = async (id) => {
     //     // console.log(id)
@@ -122,9 +124,9 @@ class MyIngredientContainer extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <CommentList mission={this.props.mission} deleteComment={this.deleteComment} comments={this.state.comments} openEditModal={this.openEditModal} />
-                <CreateCommentForm mission={this.props.mission} addComment={this.addComment} />
-                <EditCommentModal handleEditChange={this.handleEditChange} open={this.state.showEditModal} commentToEdit={this.state.commentToEdit} closeAndEdit={this.closeAndEdit} /> */}
+                {/* <CommentList mission={this.props.mission} deleteComment={this.deleteComment} comments={this.state.comments} openEditModal={this.openEditModal} /> */}
+                <CreateMyIngredientForm addMyIngredient={this.addMyIngredient} />
+                {/* <EditCommentModal handleEditChange={this.handleEditChange} open={this.state.showEditModal} commentToEdit={this.state.commentToEdit} closeAndEdit={this.closeAndEdit} /> */}
             </React.Fragment>
         )
     }
