@@ -26,7 +26,7 @@ export default class HeaderComponent extends Component {
             const parsedIngredients = await myIngredients.json();
             console.log(parsedIngredients);
             this.setState({
-                myIngredients: parsedIngredients,
+                myIngredients: parsedIngredients.user.myIngredients,
                 isLogged: true
             })
         } catch (err) {
@@ -65,8 +65,8 @@ export default class HeaderComponent extends Component {
                     </Grid.Row>
 
                     <Grid.Row stretched className="stretched">
-                        <Grid.Column className="bottomPage">
-                            <Segment>
+                        <Grid.Column className="bottomPage" style={{ overflow: 'auto', maxHeight: 350 }}>
+                            <Segment >
                                 {this.state.isLogged ? <MyIngredientContainer myIngredients={this.state.myIngredients} /> : "HI"}
                             </Segment>
                         </Grid.Column>

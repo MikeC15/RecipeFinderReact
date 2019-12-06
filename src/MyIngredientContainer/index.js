@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import CommentList from '../CommentList'
+import MyIngredientList from '../MyIngredientList'
 import CreateMyIngredientForm from '../CreateMyIngredientForm'
 // import EditCommentModal from '../EditCommentModal'
 
@@ -49,21 +49,26 @@ class MyIngredientContainer extends Component {
         }
     }
 
-    // deleteComment = async (id) => {
-    //     // console.log(id)
-    //     const deleteCommentResponse = await fetch(process.env.REACT_APP_API_URL + '/api/v1/comments/' + id, {
-    //         method: 'DELETE',
-    //         credentials: 'include'
-    //     });
-    //     const deleteCommentParsed = await deleteCommentResponse.json();
-    //     console.log(deleteCommentParsed)
-    //     if (deleteCommentParsed.status.code === 200) {
-    //         console.log(deleteCommentParsed, ' response from Flask server')
-    //         this.setState({ comments: this.state.comments.filter((comment) => comment.id !== id) })
-    //     } else {
-    //         alert(deleteCommentParsed.status.message);
-    //     }
-    // }
+    deleteMyIngredient = async (id) => {
+        console.log("THIS IS _ID PASSED UP FROM LIST:::", id)
+        const deleteMyIngredientResponse = await fetch(process.env.REACT_APP_API_URL + '/myIngredients/' + id, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log("hi", deleteMyIngredientResponse)
+        const deleteMyIngredientParsed = await deleteMyIngredientResponse.json();
+        console.log("DELETEINGREDIENTPARSED:::", deleteMyIngredientParsed)
+        // if (deleteCommentParsed.status.code === 200) {
+            // console.log(deleteCommentParsed, ' response from Express server')
+        this.setState({ myIngredients: this.state.myIngredients.filter((ingredient) => ingredient._id !== id) })
+        console.log("STATE AFTER setting delete state:::", this.state.myIngredients)
+        // } else {
+        //     alert(deleteCommentParsed.status.message);
+        // }
+    }
 
     // closeAndEdit = async (e) => {
     //     e.preventDefault()
@@ -124,7 +129,7 @@ class MyIngredientContainer extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <CommentList mission={this.props.mission} deleteComment={this.deleteComment} comments={this.state.comments} openEditModal={this.openEditModal} /> */}
+                <MyIngredientList myIngredients={this.state.myIngredients} deleteMyIngredient={this.deleteMyIngredient} />
                 <CreateMyIngredientForm addMyIngredient={this.addMyIngredient} />
                 {/* <EditCommentModal handleEditChange={this.handleEditChange} open={this.state.showEditModal} commentToEdit={this.state.commentToEdit} closeAndEdit={this.closeAndEdit} /> */}
             </React.Fragment>
