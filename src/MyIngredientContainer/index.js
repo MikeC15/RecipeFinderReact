@@ -37,12 +37,8 @@ class MyIngredientContainer extends Component {
             });
             const parsedResponse = await createdIngredientResponse.json();
             console.log(parsedResponse, ' this is response')
-            // if (parsedResponse.status.code === 201) {
             this.setState({ myIngredients:parsedResponse.user.myIngredients})
             console.log(this.state.myIngredients)
-            // } else {
-            //     alert("You must be logged in to comment")
-            // }
         } catch (err) {
             console.log('error')
             console.log(err)
@@ -58,16 +54,11 @@ class MyIngredientContainer extends Component {
                 'Content-Type': 'application/json'
             }
         });
-        console.log("hi", deleteMyIngredientResponse)
+        // console.log("hi", deleteMyIngredientResponse)
         const deleteMyIngredientParsed = await deleteMyIngredientResponse.json();
-        console.log("DELETEINGREDIENTPARSED:::", deleteMyIngredientParsed)
-        // if (deleteCommentParsed.status.code === 200) {
-            // console.log(deleteCommentParsed, ' response from Express server')
+        // console.log("DELETEINGREDIENTPARSED:::", deleteMyIngredientParsed)
         this.setState({ myIngredients: this.state.myIngredients.filter((ingredient) => ingredient._id !== id) })
-        console.log("STATE AFTER setting delete state:::", this.state.myIngredients)
-        // } else {
-        //     alert(deleteCommentParsed.status.message);
-        // }
+        // console.log("STATE AFTER setting delete state:::", this.state.myIngredients)
     }
 
     // closeAndEdit = async (e) => {

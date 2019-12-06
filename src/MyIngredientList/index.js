@@ -8,8 +8,10 @@ function MyIngredientList(props) {
     const ingredients = props.myIngredients.map((ingredient) => {
         return (
             <Segment key={ingredient._id}>
-                <Header as='h5'>{ingredient.name}</Header>
-                <Icon name="close" onClick={() => props.deleteMyIngredient(ingredient._id)} />
+                <Header as='h5'>
+                    {ingredient.name}
+                    <Icon name="close" onClick={() => props.deleteMyIngredient(ingredient._id)} />
+                </Header>
             </Segment>
             // <Comment key={comment.id}>
             //     <Comment.Content>
