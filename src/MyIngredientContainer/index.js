@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MyIngredientList from '../MyIngredientList'
 import CreateMyIngredientForm from '../CreateMyIngredientForm'
-// import EditCommentModal from '../EditCommentModal'
+import EditIngredientModal from '../EditIngredientModal'
 
 class MyIngredientContainer extends Component {
     constructor(props) {
@@ -61,68 +61,64 @@ class MyIngredientContainer extends Component {
         // console.log("STATE AFTER setting delete state:::", this.state.myIngredients)
     }
 
-    // closeAndEdit = async (e) => {
-    //     e.preventDefault()
-    //     try {
-    //         console.log('sending new comment data to server:', this.state.commentToEdit)
-    //         const editResponse = await fetch(process.env.REACT_APP_API_URL + '/api/v1/comments/' + this.state.commentToEdit.id, {
-    //             method: 'PUT',
-    //             credentials: 'include',
-    //             body: JSON.stringify(this.state.commentToEdit),
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         })
-    //         const editResponseParsed = await editResponse.json()
+    closeAndEdit = async (e) => {
+        e.preventDefault()
+        try {
+            // console.log('sending new ingredient data to server:', this.state.myIngredientToEdit)
+            const editResponse = await fetch(process.env.REACT_APP_API_URL + '/myIngredients/' + this.state.myIngredientToEdit._id, {
+                method: 'PUT',
+                credentials: 'include',
+                body: JSON.stringify(this.state.myIngredientToEdit),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const editResponseParsed = await editResponse.json()
+            // console.log('editResponseParsed::::', editResponseParsed)
+            const newIngredientArrayWithEdit = this.state.myIngredients.map((ingredient) => {
+                // console.log("ingredient::", ingredient)
+                // console.log("editedresponse::", editResponseParsed)
+                if (ingredient._id === editResponseParsed.user.myIngredients[0]._id) {
+                    // console.log("success!")
+                    ingredient = editResponseParsed.user.myIngredients[0]
+                }
+                return ingredient;
+            })
+            console.log("HERE:: ", newIngredientArrayWithEdit)
+            this.setState({
+                myIngredients: newIngredientArrayWithEdit,
+                showEditModal: false
+            })
+        }catch (err) {
+            console.log(err)
+        }
+    }
 
-    //         if (editResponseParsed.status.code === 200) {
-    //             console.log('editResponseParsed', editResponseParsed)
-    //             const newCommentArrayWithEdit = this.state.comments.map((comment) => {
-    //                 if (comment.id === editResponseParsed.data.id) {
-    //                     comment = editResponseParsed.data
-    //                 }
-    //                 return comment;
-    //             })
-    //             this.setState({
-    //                 comments: newCommentArrayWithEdit,
-    //                 showEditModal: false
-    //             })
-    //         } else {
-    //             alert(editResponseParsed.status.message);
-    //             this.setState({
-    //                 showEditModal: false
-    //             })
-    //         }
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    openEditModal = (formFromTheList) => {
+        console.log('food to edit:', formFromTheList)
+        this.setState({
+            showEditModal: true,
+            myIngredientToEdit: { ...formFromTheList }
+        })
+    }
 
-    // openEditModal = (commentFromTheList) => {
-    //     console.log('comment to edit:', commentFromTheList)
-    //     this.setState({
-    //         showEditModal: true,
-    //         commentToEdit: { ...commentFromTheList }
-    //     })
-    // }
-
-    // handleEditChange = (e) => {
-    //     this.setState({
-    //         commentToEdit: {
-    //             ...this.state.commentToEdit,
-    //             [e.currentTarget.name]: e.currentTarget.value
-    //         }
-    //     })
-    // }
+    handleEditChange = (e) => {
+        this.setState({
+            myIngredientToEdit: {
+                ...this.state.myIngredientToEdit,
+                [e.currentTarget.name]: e.currentTarget.value
+            }
+        })
+    }
 
 
 
     render() {
         return (
             <React.Fragment>
-                <MyIngredientList myIngredients={this.state.myIngredients} deleteMyIngredient={this.deleteMyIngredient} />
+                <MyIngredientList myIngredients={this.state.myIngredients} deleteMyIngredient={this.deleteMyIngredient} openEditModal={this.openEditModal} />
                 <CreateMyIngredientForm addMyIngredient={this.addMyIngredient} />
-                {/* <EditCommentModal handleEditChange={this.handleEditChange} open={this.state.showEditModal} commentToEdit={this.state.commentToEdit} closeAndEdit={this.closeAndEdit} /> */}
+                <EditIngredientModal handleEditChange={this.handleEditChange} open={this.state.showEditModal} myIngredientToEdit={this.state.myIngredientToEdit} closeAndEdit={this.closeAndEdit} />
             </React.Fragment>
         )
     }

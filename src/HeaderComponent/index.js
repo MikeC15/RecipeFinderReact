@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Grid, Header, Icon, Segment } from 'semantic-ui-react';
 import Login from '../Login'
 import Register from '../Register'
+import SpoonContainer from '../SpoonContainer'
 import MyIngredientContainer from '../MyIngredientContainer'
 import './style.css'
 
@@ -9,12 +10,13 @@ export default class HeaderComponent extends Component {
     constructor() {
     super()
         this.state = {
+            recipes: [],
             myIngredients: [],
             isLogged: false,
             registered: false
         }
     }
-
+    //my API
     getMyIngredients = async () => {
         try {
             const myIngredients = await fetch(process.env.REACT_APP_API_URL + '/myIngredients', {
@@ -31,6 +33,20 @@ export default class HeaderComponent extends Component {
             })
         } catch (err) {
             console.log(err);
+        }
+    }
+
+    //Spoon api
+    getRecipes = async (ingredient) => {
+        try {
+            const recipes = await fetch('https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredient + '&number=2?apiKey=3074b56566d24e71ad9b96aab7728234')
+            const parsedRecipes = await recipes.json()
+            console.log('PARSEDRECIPES:::', parsedRecipes)
+            this.setState({
+                recipes: parsedRecipes
+            })
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -59,7 +75,7 @@ export default class HeaderComponent extends Component {
                     <Grid.Row stretched className="stretched">
                         <Grid.Column>
                             <Segment>
-                                1
+                                <SpoonContainer getRecipes={this.getRecipes} />
                             </Segment>
                         </Grid.Column>
                     </Grid.Row>
@@ -67,7 +83,7 @@ export default class HeaderComponent extends Component {
                     <Grid.Row stretched className="stretched">
                         <Grid.Column className="bottomPage" style={{ overflow: 'auto', maxHeight: 350 }}>
                             <Segment >
-                                {this.state.isLogged ? <MyIngredientContainer myIngredients={this.state.myIngredients} /> : "HI"}
+                                {this.state.isLogged ? <MyIngredientContainer getIngredients={this.getMyIngredients} myIngredients={this.state.myIngredients} /> : "HI"}
                             </Segment>
                         </Grid.Column>
                         <Grid.Column className="bottomPage">

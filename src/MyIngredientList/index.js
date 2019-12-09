@@ -11,6 +11,7 @@ function MyIngredientList(props) {
                 <Header as='h5'>
                     {ingredient.name}
                     <Icon name="close" onClick={() => props.deleteMyIngredient(ingredient._id)} />
+                    <Icon name="edit" onClick={() => props.openEditModal(ingredient)} />
                 </Header>
             </Segment>
             // <Comment key={comment.id}>
@@ -18,7 +19,6 @@ function MyIngredientList(props) {
             //         <Header as='h5' dividing>{comment.user.username}</Header>
             //         <Comment.Text>{comment.content}</Comment.Text>
             //         <Comment.Metadata>{comment.created_at}</Comment.Metadata><br />
-            //         <Icon name="edit" onClick={() => props.openEditModal(comment)} />
             //     </Comment.Content>
             // </Comment>
         )
