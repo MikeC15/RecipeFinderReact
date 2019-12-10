@@ -3,10 +3,17 @@
 }
 .headerMargin{
     margin-bottom: 0 !important;
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400 !important;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 .loginP{
     margin-bottom: 0 !important;
-    font-size: 10px;
+    font-size: 14px;
 }
 .headerContainer{
     padding-bottom: 0 !important;
@@ -14,5 +21,72 @@
     align-self: center;
 }
 .bigContainer{
-    /* padding: 0 !important; */
+    background-color: #91b029 !important;
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+h3.ui.header{
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+div.header{
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400 !important;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+h5.ui.header {
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+button.ui.button{
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400;
+    background-color: #91b029;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+h2.ui.header{
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+div.ui.segment{
+    background-color: #c6e377;
+}
+div.content{
+    background-color: #91b029 !important;
+}
+div.extra.content{
+    background-color: #91b029 !important;
+}
+div.ui.mini.positive.message{
+    background-color: #e6a400;
+    text-shadow: none;
+    border: 1px solid black;
 }

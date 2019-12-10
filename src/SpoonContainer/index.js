@@ -1,11 +1,32 @@
 import React from 'react'
-import { Segment, Header, Icon } from 'semantic-ui-react'
+import { Card, Header, Icon } from 'semantic-ui-react'
+
+
 
 function SpoonContainer(props) {
-    
+    const eachRecipe = props.recipes.map((recipe) => {
+        return(
+            <Card
+                onClick={() => props.getOneRecipe(recipe.id)} 
+                image = {recipe.image}
+                header = {recipe.title}
+                extra={
+                    <a>
+                        <Icon name='thumbs up outline' />
+                        {recipe.likes}
+                    </a>
+                }
+            />
+        )
+    })    
 
     return (
-        <p>I need to call props.getRecipes() here and pass back up the ingredinet from the form (that i need to create HERE) this will add ingredient into the api fetch to get the recipe by ingredient</p>
+        <React.Fragment>
+            <Header as="h3">Searched Recipes</Header>
+            <Card.Group itemsPerRow={2}>
+                {eachRecipe}
+            </Card.Group>
+        </React.Fragment>
     )
 }
 

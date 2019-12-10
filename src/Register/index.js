@@ -55,8 +55,8 @@ export default class Register extends Component {
                     </Form.Group>
                     <Form.Input size='mini' width="2px" placeholder="password" type="password" name="password" onChange={this.handleChange} required action={{
                         type: 'submit',
-                        color: 'teal',
-                        icon: 'search'
+                        color: 'olive',
+                        icon: 'sign-in'
                     }} />
                     {this.state.errorMsg ? <Message size='mini' className="message" negative>{this.state.errorMsg}</Message> : null}
                     {this.state.RegisterMsg ? <Message size='mini' className="message" positive>{this.state.RegisterMsg}</Message> : null}

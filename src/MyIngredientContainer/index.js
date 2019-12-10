@@ -116,7 +116,7 @@ class MyIngredientContainer extends Component {
     render() {
         return (
             <React.Fragment>
-                <MyIngredientList myIngredients={this.state.myIngredients} deleteMyIngredient={this.deleteMyIngredient} openEditModal={this.openEditModal} />
+                <MyIngredientList ingredientsToSearch={this.props.ingredientsToSearch} myIngredients={this.state.myIngredients} deleteMyIngredient={this.deleteMyIngredient} openEditModal={this.openEditModal} />
                 <CreateMyIngredientForm addMyIngredient={this.addMyIngredient} />
                 <EditIngredientModal handleEditChange={this.handleEditChange} open={this.state.showEditModal} myIngredientToEdit={this.state.myIngredientToEdit} closeAndEdit={this.closeAndEdit} />
             </React.Fragment>

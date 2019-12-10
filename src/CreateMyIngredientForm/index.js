@@ -19,9 +19,7 @@ class CreateComment extends Component {
     render() {
         return (
             <Segment>
-                <h5>Create Ingredient</h5>
                 <Form onSubmit={(e) => this.props.addMyIngredient(e, this.state)}>
-                    <Label>Ingredient Content:</Label>
                     <Form.Input type='text' name='name' value={this.state.name} onChange={this.handleChange} />
                     <Button type='Submit'>Create Ingredient</Button>
                 </Form>

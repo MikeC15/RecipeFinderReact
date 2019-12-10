@@ -52,8 +52,8 @@ export default class Login extends Component {
                     <Form.Input size='mini' className="userLog" placeholder="username" type="username" name="username" onChange={this.handleChange} required />
                     <Form.Input size='mini' width="2px" placeholder="password" type="password" name="password" onChange={this.handleChange} required action={{
                         type: 'submit',
-                        color: 'teal',
-                        icon: 'search'
+                        color: 'olive',
+                        icon: 'sign-in'
                     }} />
                     {this.state.errorMsg ? <Message size='mini' className="message" negative>{this.state.errorMsg}</Message> : null}
                     {this.state.LoginMsg ? <Message size='mini' className="message" positive>{this.state.LoginMsg}</Message> : null}

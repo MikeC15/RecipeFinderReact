@@ -8,11 +8,11 @@ function MyIngredientList(props) {
     const ingredients = props.myIngredients.map((ingredient) => {
         return (
             <Segment key={ingredient._id}>
-                <Header as='h5'>
+                <Header as='h3' onClick={() => props.ingredientsToSearch(ingredient.name)} >
                     {ingredient.name}
-                    <Icon name="close" onClick={() => props.deleteMyIngredient(ingredient._id)} />
-                    <Icon name="edit" onClick={() => props.openEditModal(ingredient)} />
                 </Header>
+                    <Icon name="close" size='small' onClick={() => props.deleteMyIngredient(ingredient._id)} />
+                    <Icon name="edit" size='small' onClick={() => props.openEditModal(ingredient)} />
             </Segment>
             // <Comment key={comment.id}>
             //     <Comment.Content>
