@@ -19,6 +19,8 @@ function RecipeContainer(props) {
             {eachIngredient}
             <Header as="h3">Instructions</Header>
             {props.recipe.instructions}
+            <br />
+            <br />
             <img src={props.recipe.image} />
         </React.Fragment>
     )

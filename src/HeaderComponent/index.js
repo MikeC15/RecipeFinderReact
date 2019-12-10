@@ -51,7 +51,7 @@ export default class HeaderComponent extends Component {
         try {
             // console.log("ingredient isnide getrecipe", ingredient)
             // const recipes = await fetch('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples&number=2&apiKey=3074b56566d24e71ad9b96aab7728234')
-            const recipes = await fetch('https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredient + '&number=2&apiKey=3074b56566d24e71ad9b96aab7728234')
+            const recipes = await fetch('https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredient + '&number=10&apiKey=3074b56566d24e71ad9b96aab7728234')
             const parsedRecipes = await recipes.json()
             // console.log('PARSEDRECIPES INSIDE getRecipes():::', parsedRecipes)
             this.setState({
