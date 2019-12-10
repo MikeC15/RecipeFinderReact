@@ -115,7 +115,7 @@ export default class HeaderComponent extends Component {
                 oneRecipe: parsedRecipe,
                 showOneRecipe: true
             })
-            // console.log("state.recipes inside getRecipes()", this.state.oneRecipe)
+            console.log("RECIPE:", this.state.oneRecipe)
         } catch (err) {
             console.log(err)
         }
@@ -155,7 +155,7 @@ export default class HeaderComponent extends Component {
                         <Grid.Column style={{ overflow: 'auto', maxHeight: 600, paddingRight: 0}}>
                             <Segment >
                                 <Header as="h3" >Choose Favorite Ingredients</Header>
-                                {this.state.isLogged ? <MyIngredientContainer ingredientsToSearch={this.ingredientsToSearch} getIngredients={this.getMyIngredients} myIngredients={this.state.myIngredients} /> : "HI"}
+                                {this.state.isLogged ? <MyIngredientContainer ingredientsToSearch={this.ingredientsToSearch} getIngredients={this.getMyIngredients} myIngredients={this.state.myIngredients} /> : <Header as="h3" >Login To Search Recipes</Header>}
                             </Segment>
                         </Grid.Column>
                         <Grid.Column className="bottomPage">

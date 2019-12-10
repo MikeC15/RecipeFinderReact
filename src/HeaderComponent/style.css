@@ -67,6 +67,15 @@ button.ui.button{
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
 }
+h1.ui.header{
+    font-family: 'Acme', sans-serif !important;
+    color: #e6a400;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
 h2.ui.header{
     font-family: 'Acme', sans-serif !important;
     color: #e6a400;
