@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mike's Recipe Finder App
 
-## Available Scripts
+https://mikesrecipefinder.herokuapp.com/
 
-In the project directory, you can run:
+MikesRecipeFinder is an app that I developed out of constant necessity. Everyday my wife and I struggle to decide what we want to cook for dinner. Usually we spend up to an hour looking through our ingredients or discussing best options or meals weve made in the past. Now we have a solution to streamline our search for a delicious meal. With MikesRecipeFinder you can quickly enter either your favorite ingredients that you want to eat tonight, or enter the ingredients you found in you fridge. My app will give out recipes using your combination of ingredients to take the guess work out of dinner time. Its time to make dinner choices easy with MikesRecipeFinder
 
-### `yarn start`
+Technologies Used
+Mongoose, Mongodb, Javascript, ExpressJS, NodeJS, ReactJS, Spoonacular API
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To install and run my site locally
+clone my reposity from 
+https://github.com/MikeC15/RecipeFinderReact
+and
+https://github.com/MikeC15/RecipeFinderExpress
+in both file directories run
+npm install
+in react run
+npm start
+and in express run node server.js or nodemon
+you will also need to run mongod to connect to mongo servers
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+User Diagrams and Wirframes are in my notebook at home :)
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+v2 additions
+optimize search results
+add more recipe information, nutrition, wine pairings etc
+include missing ingredients for recupe and create easy shopping lists automatically
+add favorite recipes area
+integrate customer emailing for recipe ideas at dinner time

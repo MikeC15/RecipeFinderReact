@@ -57,7 +57,7 @@ export default class HeaderComponent extends Component {
             this.setState({
                 recipes: parsedRecipes
             })
-            // console.log("state.recipes inside getRecipes()", this.state.recipes)
+            console.log("state.recipes inside getRecipes()", this.state.recipes)
         } catch (err) {
             console.log(err)
         }
